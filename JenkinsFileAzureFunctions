@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('HTTP Request') {
+            steps {
+                script {
+                    def url = 'https://openaitest2525.azurewebsites.net/api/completionAPI?'
+                    def requestBody = '
+                      {
+                      "model":"text-davinci-003", 
+                      "prompt":"Cual es la capital de Australia", 
+                      "max_tokens":200, 
+                      "temperature":0
+                      }'
+                    
+                    def response = httpRequest(
+                        url: url,
+                        contentType: 'application/json',
+                        httpMode: 'POST',
+                        requestBody: requestBody
+                    )
+                    
+                    echo "Response status: ${response.status}"
+                    echo "Response body: ${response.content}"
+                }
+            }
+        }
+    }
+}
