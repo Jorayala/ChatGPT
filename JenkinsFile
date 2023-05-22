@@ -11,7 +11,7 @@ pipeline {
                     def response = httpRequest(
                         url: url,
                         contentType: 'application/json',
-                        httpMode: 'POST',
+                        httpMode: 'GET',
                         requestBody: requestBody
                     )
                     
