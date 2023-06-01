@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     def url = 'https://openaitest2525.azurewebsites.net/api/completionAPI?'
-                    def requestBody = '{ "model":"text-davinci-003", "prompt":"Cual es la capital de Venezuela", "max_tokens":200, "temperature":0  }'
+                    def requestBody = '{ "model":"text-davinci-003", "prompt":"Cual es la capital de Honduras", "max_tokens":200, "temperature":0  }'
                                 
                     def response = httpRequest url: url, acceptType: 'APPLICATION_JSON', contentType: 'APPLICATION_JSON', httpMode: 'GET', requestBody: requestBody
                                                 
